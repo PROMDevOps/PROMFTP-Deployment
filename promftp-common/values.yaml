@@ -52,7 +52,7 @@ logstash-http-to-kafka:
       }
 
       output {
-        stdout { codec => json_lines }
+        #stdout { codec => json_lines }
 
         kafka {
           bootstrap_servers => "kafka:9092"
@@ -126,11 +126,11 @@ vector-kafka-to-loki:
           - kafka_from_http
 
     sinks:
-      stdout_raw:
-        type: console
-        inputs: [kafka_from_http]
-        encoding:
-          codec: json
+      #stdout_raw:
+      #  type: console
+      #  inputs: [kafka_from_http]
+      #  encoding:
+      #    codec: json
 
       loki:
         type: "loki"
