@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vector-filter-cm
+  annotations:
+    checksum/config2: {{ .Files.Get "scripts/process_kafka_to_loki.vrl" | sha256sum }}
+data:
+  process_kafka_to_loki.vrl: |-
+{{ .Files.Get "scripts/process_kafka_to_loki.vrl" |  indent 4 }}

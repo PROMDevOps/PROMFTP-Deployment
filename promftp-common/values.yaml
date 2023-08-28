@@ -57,6 +57,99 @@ logstash-http-to-kafka:
         }
       }
 
+vector-kafka-to-loki:
+  enabled: true
+  fullnameOverride: vector-kafka-to-loki
+  replicas: 1
+  persistence:
+    enabled: true
+  env:
+    - name: DUMMY
+      value: "001"
+
+    - name: GRAFANA_LOKI_USER
+      valueFrom:
+        secretKeyRef:
+          name: vector-credentials
+          key: GRAFANA_LOKI_USER
+
+    - name: GRAFANA_LOKI_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: vector-credentials
+          key: GRAFANA_LOKI_PASSWORD
+
+    - name: ENVIRONMENT
+      valueFrom:
+        secretKeyRef:
+          name: vector-credentials
+          key: ENVIRONMENT
+
+  service:
+    enabled: false
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+  extraVolumeMounts:
+    - name: scripts
+      mountPath: /scripts/
+      readOnly: true
+  extraVolumes:
+    - name: scripts
+      configMap:
+        name: vector-filter-cm
+
+  customConfig:
+    data_dir: "/vector-data-dir" #Do not change this if you don't know the impact
+    sources:
+      internal_metrics:
+        type: internal_metrics
+
+      kafka_from_http:
+        type: kafka
+        bootstrap_servers: "kafka:9092"
+        group_id: "to-loki"
+        topics: [ "prom-ftp" ]
+        decoding:
+          codec: json
+  
+    transforms:
+      process_kafka_to_loki:
+        type: remap
+        file: "/scripts/process_kafka_to_loki.vrl"
+        inputs:
+          - kafka_from_http
+
+    sinks:
+      #stdout_raw:
+      #  type: console
+      #  inputs: [process_kafka_to_loki]
+      #  encoding:
+      #    codec: json
+
+      loki:
+        type: "loki"
+        inputs: [process_kafka_to_loki]
+        encoding:
+          codec: json
+        endpoint: "https://logs-prod-011.grafana.net/"
+        auth:
+          strategy: basic
+          user: '475784'
+          password: ${GRAFANA_LOKI_PASSWORD}
+        labels:
+          category: 'prom-ftp'
+          environment: >-
+            {{ printf "{{ platform_environment }}" }}
+          host: >-
+            {{ printf "{{ request.headers.host }}" }}
+          method: >-
+            {{ printf "{{ request.method }}" }}
+          status: >-
+            {{ printf "{{ response.status }}" }}
+
+
 ### Kafka ###
 kafka:
   enabled: true
