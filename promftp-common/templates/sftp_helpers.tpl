@@ -2,7 +2,7 @@
 Expand the name of the chart.
 */}}
 {{- define "sftp-gcs.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- default .Chart.Name .Values.sftp.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -11,7 +11,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 {{- define "sftp-gcs.fullname" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- default .Chart.Name .Values.sftp.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -45,9 +45,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Create the name of the service account to use
 */}}
 {{- define "sftp-gcs.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "sftp-gcs.fullname" .) .Values.serviceAccount.name }}
+{{- if .Values.sftp.serviceAccount.create }}
+{{- default (include "sftp-gcs.fullname" .) .Values.sftp.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- default "default" .Values.sftp.serviceAccount.name }}
 {{- end }}
 {{- end }}
