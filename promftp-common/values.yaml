@@ -1,5 +1,5 @@
 logstash-http-to-kafka:
-  enabled: false # Will change
+  enabled: true
   antiAffinity: soft
 
   fullnameOverride: logstash-http-to-kafka
