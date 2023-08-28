@@ -41,11 +41,11 @@ logstash-http-to-kafka:
         }
       }
 
-      #filter {
-      #  geoip {
-      #    source => "[request][headers][x-real-ip]"
-      #  }
-      #}
+      filter {
+        geoip {
+          source => "[headers][x-real-ip]"
+        }
+      }
 
       output {
         stdout { codec => json_lines }
@@ -122,11 +122,11 @@ vector-kafka-to-loki:
           - kafka_from_http
 
     sinks:
-      #stdout_raw:
-      #  type: console
-      #  inputs: [process_kafka_to_loki]
-      #  encoding:
-      #    codec: json
+      stdout_raw:
+        type: console
+        inputs: [process_kafka_to_loki]
+        encoding:
+          codec: json
 
       loki:
         type: "loki"
@@ -143,9 +143,9 @@ vector-kafka-to-loki:
           environment: >-
             {{ printf "{{ platform_environment }}" }}
           host: >-
-            {{ printf "{{ request.headers.host }}" }}
+            {{ printf "{{ headers.x_forwarded_host }}" }}
           method: >-
-            {{ printf "{{ request.method }}" }}
+            {{ printf "{{ headers.request_method }}" }}
           status: >-
             {{ printf "{{ response.status }}" }}
 
