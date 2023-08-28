@@ -1,3 +1,76 @@
+logstash-http-to-kafka:
+  enabled: false # Will change
+  antiAffinity: soft
+
+  fullnameOverride: logstash-http-to-kafka
+  replicas: 2
+
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "1Gi"
+    limits:
+      cpu: "2000m"
+      memory: "2Gi"
+
+  logstashJavaOpts: "-Xmx2g -Xms2g"
+
+  service:
+    ports:
+      - name: http-input
+        port: 8080
+        targetPort: 8080
+        protocol: TCP
+
+  extraEnvs:
+    - name: DUMMY
+      value: "001"
+
+  logstashConfig:
+    logstash.yml: |
+      http.host: "0.0.0.0"
+      pipeline.ecs_compatibility: "disabled"
+
+  logstashPipeline:
+    logstash.conf: |
+      input {
+        http {
+          id => "http_input"
+          codec => "json_lines"
+          port => "8080"
+        }
+      }
+
+      #filter {
+      #  geoip {
+      #    source => "[request][headers][x-real-ip]"
+      #  }
+      #}
+
+      output {
+        #stdout { codec => json_lines }
+
+        kafka {
+          bootstrap_servers => "kafka:9092"
+          codec => json
+          topic_id => "prom-ftp"
+        }
+      }
+
+### Kafka ###
+kafka:
+  enabled: true
+  fullnameOverride: kafka
+  provisioning:
+    enabled: true
+    topics:
+      - name: prom-ftp
+        partitions: 1
+        replicationFactor: 1
+        ## https://kafka.apache.org/documentation/#topicconfigs
+        config:
+          max.message.bytes: 64000
+
 sftp:
   replicaCount: 1
   nameOverride: "sftp-gcs"
