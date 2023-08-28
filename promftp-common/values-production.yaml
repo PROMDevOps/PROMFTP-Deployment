@@ -1,0 +1,6 @@
+sftp:
+  replicaCount: 1
+  users:
+    - user: prod-test
+      bucket: prom-services-ftp
+      onlyDir: prod-test
