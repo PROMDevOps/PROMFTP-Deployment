@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: gcp-sa
+spec:
+  refreshInterval: 1m
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: k8s-secret-store      # name of the SecretStore (or kind specified)
+  target:
+    name: sftp-gcloud-key       # name of the k8s Secret to be created
+  data:
+  - secretKey: gcloud-key.json
+    remoteRef:
+      key: initial-secret
+      property: GCS_FTP_SA
