@@ -1,5 +1,6 @@
 kong:
   enabled: true
+  replicaCount: 1
   fullnameOverride: kong
   proxy:
     type: ClusterIP
@@ -76,7 +77,7 @@ logstash-http-to-kafka:
       }
 
       output {
-        stdout { codec => json_lines }
+        #stdout { codec => json_lines }
 
         kafka {
           bootstrap_servers => "kafka:9092"
@@ -86,7 +87,7 @@ logstash-http-to-kafka:
       }
 
 vector-kafka-to-loki:
-  enabled: false # Disable it now
+  enabled: true
   fullnameOverride: vector-kafka-to-loki
   replicas: 1
   persistence:

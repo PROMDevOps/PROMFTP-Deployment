@@ -7,3 +7,6 @@ sftp:
     - user: prod-test
       bucket: prom-services-ftp
       onlyDir: prod-test
+
+kong:
+  replicaCount: 2
