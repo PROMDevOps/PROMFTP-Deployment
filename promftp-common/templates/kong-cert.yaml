@@ -1,9 +1,9 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: logstash-http-cert
+  name: kong-http-cert
 spec:
-  secretName: logstash-http-cert
+  secretName: kong-http-cert
   dnsNames:
     - {{ .Values.domainHttp }}
   issuerRef:

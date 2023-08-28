@@ -1,3 +1,27 @@
+kong:
+  enabled: true
+  fullnameOverride: kong
+  proxy:
+    type: ClusterIP
+
+  dblessConfig:
+    configMap: kong-config
+
+  env:
+    database: "off"
+
+  customEnv:
+    DUMMY: "001" #Update this when Kong configuration is changed in order to restart the pods
+
+  ingressController:
+    enabled: false # This is required in DB less mode
+
+  admin:
+    enabled: true
+    type: ClusterIP
+    http:
+      enabled: true
+
 logstash-http-to-kafka:
   enabled: true
   antiAffinity: soft
@@ -52,7 +76,7 @@ logstash-http-to-kafka:
       }
 
       output {
-        #stdout { codec => json_lines }
+        stdout { codec => json_lines }
 
         kafka {
           bootstrap_servers => "kafka:9092"
@@ -62,7 +86,7 @@ logstash-http-to-kafka:
       }
 
 vector-kafka-to-loki:
-  enabled: true
+  enabled: false # Disable it now
   fullnameOverride: vector-kafka-to-loki
   replicas: 1
   persistence:

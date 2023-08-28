@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: logstash-http-ing
+  name: kong-http-ing
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     kubernetes.io/ingress.class: "nginx"
@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts:
       - {{ .Values.domainHttp }}
-      secretName: logstash-http-cert
+      secretName: kong-http-cert
   rules:
     - host: {{ .Values.domainHttp }}
       http:
@@ -18,6 +18,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: logstash-http-to-kafka
+                name: kong-proxy
                 port:
-                  number: 8080
+                  number: 80

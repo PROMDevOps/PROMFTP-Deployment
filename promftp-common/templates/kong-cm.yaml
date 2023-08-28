@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kong-config
+data:
+  kong.yml: |
+    _format_version: "3.0"
+    _transform: true
+
+    services:
+    - name: sftp-hook
+      url: http://logstash-http-to-kafka:8080/
+      routes:
+      - name: sftp-hook
+        strip_path: true
+        paths:
+        - /
+
+    plugins:
+    - name: http-log
+      service: sftp-hook
+      config:
+        http_endpoint: http://logstash-http-to-kafka.analytic-{{ .Values.envAlias }}.svc.cluster.local:8080/
+        method: POST
+        timeout: 1000
+        keepalive: 1000
+        flush_timeout: 2
+        retry_count: 15
