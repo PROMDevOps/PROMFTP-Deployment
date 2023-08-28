@@ -43,7 +43,7 @@ logstash-http-to-kafka:
 
       filter {
         geoip {
-          source => "[headers][x-real-ip]"
+          source => "[headers][x_real_ip]"
         }
       }
 
@@ -142,8 +142,8 @@ vector-kafka-to-loki:
           category: 'prom-ftp'
           environment: >-
             {{ printf "{{ platform_environment }}" }}
-          host: >-
-            {{ printf "{{ headers.x_forwarded_host }}" }}
+          #host: >-
+          #  {{ printf "{{ headers.x_forwarded_host }}" }}
           method: >-
             {{ printf "{{ headers.request_method }}" }}
           status: >-
