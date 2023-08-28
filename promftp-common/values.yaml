@@ -124,7 +124,7 @@ vector-kafka-to-loki:
     sinks:
       stdout_raw:
         type: console
-        inputs: [process_kafka_to_loki]
+        inputs: [kafka_from_http]
         encoding:
           codec: json
 
