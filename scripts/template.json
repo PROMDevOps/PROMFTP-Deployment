@@ -1,10 +1,10 @@
 {
-  "RefId": "ABC-REF-001",
-  "UploadPath": "T001/2023-08-29/ABC-REF-001.jpg",
+  "RefId": "TICKET-001",
+  "UploadPath": "TICKET-001.20230829_1236.jpg",
   "UploadSize": "2500",
   "UploadTimeMs": "560",
   "CompanyId": "XXX001",
   "BranchId": "BR-001",
   "EquipmentId": "T001",
-  "StartDtm": "2023-08-29T03:19:03.568Z"
+  "StartDtm": "2023-08-29T05:42:14.029Z"
 }
