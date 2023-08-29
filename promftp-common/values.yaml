@@ -190,6 +190,18 @@ kafka:
         config:
           max.message.bytes: 64000
 
+kafka-ui:
+  enabled: true
+  fullnameOverride: kafka-ui
+  existingSecret: kafka-ui-credential
+  envs:
+    config:
+      KAFKA_CLUSTERS_0_NAME: kafka-sftp
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_READONLY: "false"
+      AUTH_TYPE: "LOGIN_FORM" #"DISABLED"
+      SECURITY_BASIC_ENABLED: "true"
+
 sftp:
   replicaCount: 1
   nameOverride: "sftp-gcs"

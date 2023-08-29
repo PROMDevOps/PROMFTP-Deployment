@@ -1,2 +1,3 @@
 envAlias: development
 domainHttp: lp.promjodd-dev.prom.co.th
+domainKafka: kafka-lp.promjodd-dev.prom.co.th
