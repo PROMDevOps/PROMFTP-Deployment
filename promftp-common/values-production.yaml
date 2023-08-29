@@ -1,5 +1,6 @@
 envAlias: production
 domainHttp: lp.promjodd.prom.co.th
+domainKafka: kafka-lp.promjodd.prom.co.th
 
 sftp:
   replicaCount: 1
