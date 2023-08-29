@@ -1,10 +1,10 @@
 {
-  "RefId": "TICKET-001",
-  "UploadPath": "TICKET-001.20230829_1236.jpg",
-  "UploadSize": "2500",
-  "UploadTimeMs": "560",
+  "RefId": "1693304428",
+  "UploadPath": "/ftp/T001/2023-08-29/1693304428.2023-08-29.jpg",
+  "UploadSize": "167549",
+  "UploadTimeMs": "5562",
   "CompanyId": "XXX001",
   "BranchId": "BR-001",
   "EquipmentId": "T001",
-  "StartDtm": "2023-08-29T05:42:14.029Z"
+  "StartDtm": "2023-08-29T10:20:28.322Z"
 }

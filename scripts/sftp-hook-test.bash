@@ -1,21 +1,41 @@
 #!/bin/bash
 
+# ./sftp-hook-test.bash test.jpg
+
+SRC_IMAGE=$1
+TICKET_ID=$(date +"%s")
+
 # Read AUTH_USER and AUTH_PASSWORD from export.bash file
 . ./export.bash
 
+FILE_NAME=$(basename -- "${SRC_IMAGE}")
+EXTENSION="${FILE_NAME##*.}"
+
 DAT_TEMPLATE=template.json
-#TICKET-001.20230829_1236.jpg
+COMPANY_ID="XXX001"
+BRANCH_ID="BR-001"
+EQUIPMENT_ID="T001"
 
 DATE_STAMP=$(date -I)
 TIME_STAMP=$(date --utc +%FT%T.%3NZ)
-REF_ID="TICKET-001"
-EQUIPMENT_ID="T001"
-UPLOADED_PATH="TICKET-001.20230829_1236.jpg" # Uploaded file should be foldered by ${DATE_STAMP}
-UPLOADED_SIZE=2500
-UPLOADED_TIME_MS=560
-COMPANY_ID="XXX001"
-BRANCH_ID="BR-001"
+REF_ID="${TICKET_ID}"
+UPLOADED_IMAGE_NAME="${REF_ID}.${DATE_STAMP}.${EXTENSION}"
+UPLOADED_PATH="/ftp/${EQUIPMENT_ID}/${DATE_STAMP}/${UPLOADED_IMAGE_NAME}" # Uploaded file should be foldered by ${DATE_STAMP}
 
+cp ${SRC_IMAGE} ${UPLOADED_IMAGE_NAME}
+
+UPLOADED_SIZE=$(wc -c < ${UPLOADED_IMAGE_NAME})
+
+echo "### Start uploading file [${UPLOADED_IMAGE_NAME}] [${UPLOADED_SIZE} bytes] to FTP server..."
+START_EPOCH=$(date +%s%N | cut -b1-13)
+./sftp.bash ${UPLOADED_IMAGE_NAME} ${EQUIPMENT_ID} ${DATE_STAMP}
+END_EPOCH=$(date +%s%N | cut -b1-13)
+UPLOADED_TIME_MS=$((END_EPOCH-START_EPOCH))
+echo "### Done uploading file [${UPLOADED_IMAGE_NAME}] [${UPLOADED_TIME_MS} ms] to FTP server"
+
+rm ${UPLOADED_IMAGE_NAME}
+
+echo "### Start calling webhook for [${UPLOADED_IMAGE_NAME}]..."
 cat << EOF > ${DAT_TEMPLATE}
 {
   "RefId": "${REF_ID}",
@@ -41,3 +61,5 @@ curl -X POST https://lp.promjodd.prom.co.th/ -s \
    -H "Prom-Start-Timestamp: ${TIME_STAMP}" \
    -u "${AUTH_USER}:${AUTH_PASSWORD}" \
    -d "@${DAT_TEMPLATE}"
+
+echo "### Done calling webhook for [${UPLOADED_IMAGE_NAME}]..."
