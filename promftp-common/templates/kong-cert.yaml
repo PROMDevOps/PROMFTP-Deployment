@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kong-http-cert
+spec:
+  secretName: kong-http-cert
+  dnsNames:
+    - {{ .Values.domainHttp }}
+  issuerRef:
+    name: lets-encrypt-issuer-prod
+    kind: ClusterIssuer
+    group: cert-manager.io

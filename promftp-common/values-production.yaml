@@ -1,6 +1,12 @@
+envAlias: production
+domainHttp: lp.promjodd-dev.prom.co.th
+
 sftp:
   replicaCount: 1
   users:
     - user: prod-test
       bucket: prom-services-ftp
       onlyDir: prod-test
+
+kong:
+  replicaCount: 2
