@@ -1,5 +1,5 @@
 envAlias: production
-domainHttp: lp.promjodd-dev.prom.co.th
+domainHttp: lp.promjodd.prom.co.th
 
 sftp:
   replicaCount: 1
