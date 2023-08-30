@@ -1,10 +1,11 @@
 {
-  "RefId": "1693304428",
-  "UploadPath": "/ftp/T001/2023-08-29/1693304428.2023-08-29.jpg",
+  "RefId": "1693355112",
+  "UploadPath": "/ftp/T001/2023-08-30/1693355112.2023-08-30.jpg",
   "UploadSize": "167549",
-  "UploadTimeMs": "5562",
+  "UploadTimeMs": "4847",
   "CompanyId": "XXX001",
   "BranchId": "BR-001",
   "EquipmentId": "T001",
-  "StartDtm": "2023-08-29T10:20:28.322Z"
+  "StartDtm": "2023-08-30T00:25:12.757Z",
+  "UploadUser": "prod-test"
 }

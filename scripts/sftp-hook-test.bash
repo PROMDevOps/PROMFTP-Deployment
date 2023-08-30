@@ -45,7 +45,8 @@ cat << EOF > ${DAT_TEMPLATE}
   "CompanyId": "${COMPANY_ID}",
   "BranchId": "${BRANCH_ID}",
   "EquipmentId": "${EQUIPMENT_ID}",
-  "StartDtm": "${TIME_STAMP}"
+  "StartDtm": "${TIME_STAMP}",
+  "UploadUser": "${SFTP_USER}"
 }
 EOF
 
@@ -59,6 +60,7 @@ curl -X POST https://lp.promjodd.prom.co.th/ -s \
    -H "Prom-Branch: ${BRANCH_ID}" \
    -H "Prom-Equipment-ID: ${EQUIPMENT_ID}" \
    -H "Prom-Start-Timestamp: ${TIME_STAMP}" \
+   -H "Prom-Upload-User: ${SFTP_USER}" \
    -u "${AUTH_USER}:${AUTH_PASSWORD}" \
    -d "@${DAT_TEMPLATE}"
 
