@@ -251,3 +251,18 @@ sftp:
   tolerations: []
 
   affinity: {}
+
+promlpr-worker:
+  enabled: true
+  nameOverride: lpr-worker
+
+  podDisruptionBudget:
+    enabled: false
+
+  pods:
+    controller: deployment
+    image:
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-worker
+  service:
+    enabled: false
+    ports: []
