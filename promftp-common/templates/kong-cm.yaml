@@ -11,15 +11,15 @@ data:
     - name: lpr-hook
       url: http://logstash-http-to-kafka:8080/
       routes:
-      - name: sftp-done-notify
+      - name: file-uploaded-notify
         strip_path: true
         paths:
-        - /sftp-done-notify
+        - /file-uploaded-notify
 
-      - name: lpr-done-notify
+      - name: lpr-available-notify
         strip_path: true
         paths:
-        - /lpr-done-notify
+        - /lpr-available-notify
   
     plugins:
     - name: http-log
