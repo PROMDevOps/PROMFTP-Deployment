@@ -52,7 +52,7 @@ cat << EOF > ${DAT_TEMPLATE}
 }
 EOF
 
-curl -X POST https://${HOST_NAME}/lpr-available-notify -s \
+curl -X POST https://${HOST_NAME}/file-uploaded-notify -s \
    -H "Content-Type: application/json" \
    -H "Prom-Ref-ID: ${REF_ID}" \
    -H "Prom-Upload-Path: ${UPLOADED_PATH}" \

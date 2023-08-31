@@ -176,7 +176,7 @@ vector-kafka-to-loki:
           method: >-
             {{ printf "{{ http_headers.request_method }}" }}
           path: >-
-            {{ printf "{{ http_headers.request_path }}" }}
+            {{ printf "{{ http_headers.x_forwarded_path }}" }}
 
 ### Kafka ###
 kafka:
