@@ -39,3 +39,10 @@ dependencies:
     condition: kafka-ui.enabled
     repository: "https://provectus.github.io/kafka-ui-charts"
     version: "0.7.4"
+
+  ### PromLPR ###
+  - name: "generic-app"
+    alias: promlpr-worker
+    condition: promlpr-worker.enabled
+    repository: "https://charts.visonneau.fr/"
+    version: "0.0.14"
