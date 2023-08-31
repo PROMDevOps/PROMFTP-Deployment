@@ -1,18 +1,19 @@
 #!/bin/bash
 
-# ./sftp.bash xxxx.jpg 0001 2023-08-28
+# ./sftp.bash xxxx.jpg 0001 2023-08-28 <dev|prod>
 
 SRC_FILE=$1
 EQUIPMENT_ID=$2
 DATE_STAMP=$3
+ENV=$4
 
 SCRIPT_FILE=script.txt
 
-. ./export.bash
+. ./export.bash ${ENV}
 
 cat << EOF > ${SCRIPT_FILE}
 option batch continue
-open sftp://${SFTP_USER}:${SFTP_PASSWORD}@lp.promjodd.prom.co.th:2022
+open sftp://${SFTP_USER}:${SFTP_PASSWORD}@${HOST_NAME}:2022
 cd /ftp
 
 mkdir ${EQUIPMENT_ID}

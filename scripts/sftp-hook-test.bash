@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# ./sftp-hook-test.bash test.jpg
+# ./sftp-hook-test.bash test.jpg <dev|prod>
 
 SRC_IMAGE=$1
+ENV=$2
+
 TICKET_ID=$(date +"%s")
 
 # Read AUTH_USER and AUTH_PASSWORD from export.bash file
-. ./export.bash
+. ./export.bash ${ENV}
 
 FILE_NAME=$(basename -- "${SRC_IMAGE}")
 EXTENSION="${FILE_NAME##*.}"
@@ -28,7 +30,7 @@ UPLOADED_SIZE=$(wc -c < ${UPLOADED_IMAGE_NAME})
 
 echo "### Start uploading file [${UPLOADED_IMAGE_NAME}] [${UPLOADED_SIZE} bytes] to FTP server..."
 START_EPOCH=$(date +%s%N | cut -b1-13)
-./sftp.bash ${UPLOADED_IMAGE_NAME} ${EQUIPMENT_ID} ${DATE_STAMP}
+./sftp.bash ${UPLOADED_IMAGE_NAME} ${EQUIPMENT_ID} ${DATE_STAMP} ${ENV}
 END_EPOCH=$(date +%s%N | cut -b1-13)
 UPLOADED_TIME_MS=$((END_EPOCH-START_EPOCH))
 echo "### Done uploading file [${UPLOADED_IMAGE_NAME}] [${UPLOADED_TIME_MS} ms] to FTP server"
@@ -50,7 +52,7 @@ cat << EOF > ${DAT_TEMPLATE}
 }
 EOF
 
-curl -X POST https://lp.promjodd.prom.co.th/ -s \
+curl -X POST https://${HOST_NAME}/lpr-available-notify -s \
    -H "Content-Type: application/json" \
    -H "Prom-Ref-ID: ${REF_ID}" \
    -H "Prom-Upload-Path: ${UPLOADED_PATH}" \
