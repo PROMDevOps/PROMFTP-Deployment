@@ -1,4 +1,4 @@
 promlpr-worker:
   pods:
     image:
-      tag: "develop-b2a7f9e"
+      tag: "develop-0bdb384"
