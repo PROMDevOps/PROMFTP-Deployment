@@ -20,3 +20,17 @@ promlpr-worker:
 
       - name: GOOGLE_APPLICATION_CREDENTIALS
         value: "/credentials/gcloud-key.json"
+
+      - name: LPRExecutor__lprBaseUrl
+        valueFrom:
+          secretKeyRef:
+            name: lpr-worker-secret
+            key: LPR_BASE_URL
+            optional: false
+
+      - name: LPRExecutor__lprAuthKey
+        valueFrom:
+          secretKeyRef:
+            name: lpr-worker-secret
+            key: LPR_AUTH_KEY
+            optional: false
