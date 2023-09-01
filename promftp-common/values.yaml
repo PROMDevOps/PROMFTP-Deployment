@@ -263,6 +263,15 @@ promlpr-worker:
     controller: deployment
     image:
       name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-worker
+    volumes:
+      - name: gcloud-key
+        secret:
+          secretName: sftp-gcloud-key
+          optional: false
+    volumeMounts:
+      - name: gcloud-key
+        mountPath: /credentials/gcloud-key.json
+        subPath: gcloud-key.json
   service:
     enabled: false
     ports: []

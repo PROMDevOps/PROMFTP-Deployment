@@ -17,3 +17,6 @@ promlpr-worker:
 
       - name: JAEGER_AGENT_PORT
         value: "4317"
+
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: "/credentials/gcloud-key.json"
