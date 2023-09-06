@@ -21,6 +21,14 @@ data:
         paths:
         - /lpr-available-notify
   
+    - name: lpr-api
+      url: http://promftp-{{ .Values.envAlias }}-lpr-api:8080/
+      routes:
+      - name: file-upload-api
+        strip_path: true
+        paths:
+        - /file-upload
+
     plugins:
     - name: http-log
       service: lpr-hook
