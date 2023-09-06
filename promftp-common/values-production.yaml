@@ -44,3 +44,36 @@ promlpr-worker:
             name: lpr-worker-secret
             key: LPR_AUTH_KEY
             optional: false
+
+promlpr-api:
+  ingress:
+    enabled: false
+
+  pods:
+    env:
+      # To solve ulimit(128) issue
+      - name: DOTNET_USE_POLLING_FILE_WATCHER
+        value: "true"
+
+      - name: JAEGER_AGENT_HOST
+        value: "http://tempo.tempo.svc.cluster.local"
+
+      - name: JAEGER_AGENT_PORT
+        value: "4317"
+
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: "/credentials/gcloud-key.json"
+
+      - name: LPRExecutor__lprBaseUrl
+        valueFrom:
+          secretKeyRef:
+            name: lpr-worker-secret
+            key: LPR_BASE_URL
+            optional: false
+
+      - name: LPRExecutor__lprAuthKey
+        valueFrom:
+          secretKeyRef:
+            name: lpr-worker-secret
+            key: LPR_AUTH_KEY
+            optional: false

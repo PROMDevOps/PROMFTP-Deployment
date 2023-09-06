@@ -275,3 +275,31 @@ promlpr-worker:
   service:
     enabled: false
     ports: []
+
+promlpr-api:
+  enabled: true
+  nameOverride: lpr-api
+
+  podDisruptionBudget:
+    enabled: false
+
+  pods:
+    controller: deployment
+    image:
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-api
+    volumes:
+      - name: gcloud-key
+        secret:
+          secretName: sftp-gcloud-key
+          optional: false
+    volumeMounts:
+      - name: gcloud-key
+        mountPath: /credentials/gcloud-key.json
+        subPath: gcloud-key.json
+  service:
+    enabled: true
+    ports:
+      - port: 8080
+        targetPort: 8080
+        protocol: TCP
+        name: http
