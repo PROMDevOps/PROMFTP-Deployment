@@ -8,19 +8,6 @@ data:
     _transform: true
 
     services:
-    - name: lpr-hook
-      url: http://logstash-http-to-kafka:8080/
-      routes:
-      - name: file-uploaded-notify
-        strip_path: true
-        paths:
-        - /file-uploaded-notify
-
-      - name: lpr-available-notify
-        strip_path: true
-        paths:
-        - /lpr-available-notify
-  
     - name: lpr-api
       url: http://promftp-{{ .Values.envAlias }}-lpr-api:8080/
       routes:
