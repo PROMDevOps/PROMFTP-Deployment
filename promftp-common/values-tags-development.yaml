@@ -3,7 +3,7 @@ promlpr-worker:
     image:
       tag: "main-215594d"
 
-promlpr-lpr:
+promlpr-api:
   pods:
     image:
       tag: "main-215594d"
