@@ -18,7 +18,7 @@ data:
 
     plugins:
     - name: http-log
-      service: lpr-hook
+      service: lpr-api
       config:
         http_endpoint: http://logstash-http-to-kafka.analytic-{{ .Values.envAlias }}.svc.cluster.local:8080/
         method: POST
