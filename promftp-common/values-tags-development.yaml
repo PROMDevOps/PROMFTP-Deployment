@@ -2,3 +2,8 @@ promlpr-worker:
   pods:
     image:
       tag: "main-215594d"
+
+promlpr-lpr:
+  pods:
+    image:
+      tag: "main-215594d"

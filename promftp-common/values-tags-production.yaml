@@ -2,3 +2,8 @@ promlpr-worker:
   pods:
     image:
       tag: "v0.0.1"
+
+promlpr-lpr:
+  pods:
+    image:
+      tag: "v0.0.6"
