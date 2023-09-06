@@ -46,3 +46,9 @@ dependencies:
     condition: promlpr-worker.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
+
+  - name: "generic-app"
+    alias: promlpr-api
+    condition: promlpr-api.enabled
+    repository: "https://charts.visonneau.fr/"
+    version: "0.0.14"
