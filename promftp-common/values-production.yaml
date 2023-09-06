@@ -2,12 +2,12 @@ envAlias: production
 domainHttp: lp.promjodd.prom.co.th
 domainKafka: kafka-lp.promjodd.prom.co.th
 
-sftp:
-  replicaCount: 1
-  users:
-    - user: prod-test
-      bucket: prom-services-ftp
-      onlyDir: prod-test
+#sftp:
+#  replicaCount: 1
+#  users:
+#    - user: prod-test
+#      bucket: prom-services-ftp
+#      onlyDir: prod-test
 
 kong:
   replicaCount: 2

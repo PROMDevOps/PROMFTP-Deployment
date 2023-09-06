@@ -24,7 +24,7 @@ kong:
       enabled: true
 
 logstash-http-to-kafka:
-  enabled: true
+  enabled: false # Disable it
   antiAffinity: soft
 
   fullnameOverride: logstash-http-to-kafka
@@ -204,53 +204,42 @@ kafka-ui:
       AUTH_TYPE: "LOGIN_FORM" #"DISABLED"
       SECURITY_BASIC_ENABLED: "true"
 
-sftp:
-  replicaCount: 1
-  nameOverride: "sftp-gcs"
-  fullnameOverride: "sftp-gcs"
-
-  users:
-    - user: demo
-      bucket: prom-services-ftp
-      onlyDir: demo
-
-  service:
-    type: NodePort
-    port: 2022
-    nodePort: 32022
-    annotations: {}
-
-  image:
-    repository: danuk/k8s-sftp-gcs
-    tag: latest
-    pullPolicy: IfNotPresent
-
-  imagePullSecrets: []
-
-  podAnnotations: {}
-
-  podSecurityContext: {}
+#sftp:
+#  replicaCount: 1
+#  nameOverride: "sftp-gcs"
+#  fullnameOverride: "sftp-gcs"
+#  users:
+#    - user: demo
+#      bucket: prom-services-ftp
+#      onlyDir: demo
+#  service:
+#    type: NodePort
+#    port: 2022
+#    nodePort: 32022
+#    annotations: {}
+#  image:
+#    repository: danuk/k8s-sftp-gcs
+#    tag: latest
+#    pullPolicy: IfNotPresent
+#  imagePullSecrets: []
+#  podAnnotations: {}
+#  podSecurityContext: {}
     # fsGroup: 2000
-
-  securityContext:
-    privileged: true
-    capabilities:
-      add:
-      - SYS_ADMIN
-
-  resources: {}
+#  securityContext:
+#    privileged: true
+#    capabilities:
+#      add:
+#      - SYS_ADMIN
+#  resources: {}
     # limits:
     #   cpu: 100m
     #   memory: 128Mi
     # requests:
     #   cpu: 100m
     #   memory: 128Mi
-
-  nodeSelector: {}
-
-  tolerations: []
-
-  affinity: {}
+#  nodeSelector: {}
+#  tolerations: []
+#  affinity: {}
 
 promlpr-worker:
   enabled: true
