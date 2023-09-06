@@ -2,3 +2,8 @@ promlpr-worker:
   pods:
     image:
       tag: "<<image-tag>>"
+
+promlpr-api:
+  pods:
+    image:
+      tag: "<<image-tag>>"
