@@ -39,3 +39,10 @@ dependencies:
     condition: promlpr-api.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
+
+  ### pgSQL ###
+  - name: "postgresql"
+    alias: postgresql-lpr-api
+    condition: postgresql-lpr-api.enabled
+    repository: "https://charts.bitnami.com/bitnami"
+    version: "12.5.7"

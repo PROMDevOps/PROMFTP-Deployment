@@ -68,3 +68,19 @@ promlpr-api:
             name: lpr-worker-secret
             key: LPR_AUTH_KEY
             optional: false
+
+      - name: PostgreSQL__Host
+        value: "postgresql-lpr-api"
+
+      - name: PostgreSQL__Database
+        value: "lpr-api"
+
+      - name: PostgreSQL__User
+        value: "postgres"
+
+      - name: PostgreSQL__Password
+        valueFrom:
+          secretKeyRef:
+            name: lpr-api-postgres-secret
+            key: adminPasswordKey
+            optional: false
