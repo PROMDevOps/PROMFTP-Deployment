@@ -100,3 +100,12 @@ promlpr-api:
         targetPort: 8080
         protocol: TCP
         name: http
+
+postgresql-lpr-api:
+  enabled: true
+  fullnameOverride: postgresql-lpr-api
+  auth:
+    database: lpr-api
+    existingSecret: lpr-api-postgres-secret
+    secretKeys:
+      adminPasswordKey: adminPasswordKey
