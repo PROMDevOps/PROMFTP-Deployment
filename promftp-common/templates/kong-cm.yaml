@@ -11,10 +11,10 @@ data:
     - name: lpr-api
       url: http://promftp-{{ .Values.envAlias }}-lpr-api:8080/
       routes:
-      - name: file-upload-api
+      - name: alpr-api
         strip_path: true
         paths:
-        - /file-upload
+        - /alpr
 
     plugins:
     - name: http-log
