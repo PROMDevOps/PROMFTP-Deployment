@@ -1,9 +1,9 @@
 promlpr-worker:
   pods:
     image:
-      tag: "v0.1.1"
+      tag: "v0.1.2"
 
 promlpr-api:
   pods:
     image:
-      tag: "v0.1.1"
+      tag: "v0.1.2"
