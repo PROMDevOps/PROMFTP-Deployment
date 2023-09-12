@@ -116,6 +116,6 @@ opensearch-cluster:
   opensearchCluster:
     general:
       serviceName: opensearch-lpr-api
-    security:
-      config:
-        adminCredentialsSecret: opensearch-admin-secret
+    #security:
+    #  config:
+    #    adminCredentialsSecret: opensearch-admin-secret
