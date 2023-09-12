@@ -114,6 +114,9 @@ opensearch-cluster:
   enabled: true
   fullnameOverride: opensearch-lpr-api
   opensearchCluster:
+    dashboards:
+      opensearchCredentialsSecret:
+        name: opensearch-admin-secret
     general:
       serviceName: opensearch-lpr-api
     security:
