@@ -113,3 +113,6 @@ postgresql-lpr-api:
 opensearch-cluster:
   enabled: true
   fullnameOverride: opensearch-lpr-api
+  opensearchCluster:
+    general:
+      serviceName: opensearch-lpr-api
