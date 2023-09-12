@@ -111,7 +111,7 @@ postgresql-lpr-api:
       adminPasswordKey: adminPasswordKey
 
 opensearch-cluster:
-  enabled: true
+  enabled: false  # Disable for now
   fullnameOverride: opensearch-lpr-api
   opensearchCluster:
     dashboards:
