@@ -46,3 +46,10 @@ dependencies:
     condition: postgresql-lpr-api.enabled
     repository: "https://charts.bitnami.com/bitnami"
     version: "12.5.7"
+
+  ### Open Search ###
+  - name: "opensearch-cluster"
+    alias: opensearch-cluster
+    condition: opensearch-cluster.enabled
+    repository: "https://opster.github.io/opensearch-k8s-operator/"
+    version: "2.4.0"

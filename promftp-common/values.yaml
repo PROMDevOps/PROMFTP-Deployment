@@ -109,3 +109,7 @@ postgresql-lpr-api:
     existingSecret: lpr-api-postgres-secret
     secretKeys:
       adminPasswordKey: adminPasswordKey
+
+opensearch-cluster:
+  enabled: true
+  fullnameOverride: opensearch-lpr-api
