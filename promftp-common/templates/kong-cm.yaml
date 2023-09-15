@@ -20,7 +20,7 @@ data:
       url: http://promftp-{{ .Values.envAlias }}-lpr-uploader:3030/
       routes:
       - name: alpr-uploader
-        strip_path: true
+        strip_path: false
         paths:
         - /web
 
