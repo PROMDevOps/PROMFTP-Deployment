@@ -16,6 +16,14 @@ data:
         paths:
         - /alpr
 
+    - name: lpr-uploader
+      url: http://promftp-{{ .Values.envAlias }}-lpr-uploader:3030/
+      routes:
+      - name: alpr-uploader
+        strip_path: true
+        paths:
+        - /web
+
     plugins:
     - name: http-log
       service: lpr-api
