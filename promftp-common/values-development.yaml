@@ -84,3 +84,19 @@ promlpr-api:
             name: lpr-api-postgres-secret
             key: adminPasswordKey
             optional: false
+
+promlpr-uploader:
+  ingress:
+    enabled: false
+
+  pods:
+    env:
+      - name: LPR_KEY
+        valueFrom:
+          secretKeyRef:
+            name: lpr-worker-secret
+            key: LPR_BASE_URL
+            optional: false
+
+      - name: LPR_ENDPOINT
+        value: https://lpr.promjodd-dev.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage

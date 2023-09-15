@@ -110,16 +110,21 @@ postgresql-lpr-api:
     secretKeys:
       adminPasswordKey: adminPasswordKey
 
-opensearch-cluster:
-  enabled: false  # Disable for now
-  fullnameOverride: opensearch-lpr-api
-  opensearchCluster:
-    dashboards:
-      opensearchCredentialsSecret:
-        name: opensearch-admin-secret
-    general:
-      serviceName: opensearch-lpr-api
-    security:
-      config:
-        adminCredentialsSecret:
-          name: opensearch-admin-secret
+promlpr-uploader:
+  enabled: true
+  nameOverride: lpr-uploader
+
+  podDisruptionBudget:
+    enabled: false
+
+  pods:
+    controller: deployment
+    image:
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-uploader
+  service:
+    enabled: true
+    ports:
+      - port: 3030
+        targetPort: 3030
+        protocol: TCP
+        name: http

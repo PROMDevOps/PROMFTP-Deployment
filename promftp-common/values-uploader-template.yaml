@@ -1,0 +1,4 @@
+promlpr-uploader:
+  pods:
+    image:
+      tag: "<<image-tag>>"
