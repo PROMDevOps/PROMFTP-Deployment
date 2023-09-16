@@ -1,4 +1,4 @@
 promlpr-uploader:
   pods:
     image:
-      tag: "v0.0.4"
+      tag: "main-ef656a4"
