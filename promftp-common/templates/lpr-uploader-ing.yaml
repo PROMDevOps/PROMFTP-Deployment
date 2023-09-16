@@ -9,9 +9,20 @@ spec:
   tls:
     - hosts:
       - {{ .Values.domainLprUpload }}
+      - www.{{ .Values.domainLprUpload }}
       secretName: lpr-uploader-cert
   rules:
     - host: {{ .Values.domainLprUpload }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: promftp-{{ .Values.envAlias }}-lpr-uploader
+                port:
+                  number: 3030
+    - host: www.{{ .Values.domainLprUpload }}
       http:
         paths:
           - path: /
