@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: lpr-uploader-cert
+spec:
+  secretName: lpr-uploader-cert
+  dnsNames:
+    - {{ .Values.domainLprUpload }}
+  issuerRef:
+    name: lets-encrypt-issuer-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
