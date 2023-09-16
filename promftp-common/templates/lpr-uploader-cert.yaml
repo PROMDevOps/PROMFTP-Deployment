@@ -6,6 +6,7 @@ spec:
   secretName: lpr-uploader-cert
   dnsNames:
     - {{ .Values.domainLprUpload }}
+    - www.{{ .Values.domainLprUpload }}
   issuerRef:
     name: lets-encrypt-issuer-prod
     kind: ClusterIssuer
