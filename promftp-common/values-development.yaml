@@ -96,7 +96,7 @@ promlpr-uploader:
         valueFrom:
           secretKeyRef:
             name: lpr-worker-secret
-            key: LPR_BASE_URL
+            key: LPR_UPLOADER_KEY
             optional: false
 
       - name: LPR_ENDPOINT
