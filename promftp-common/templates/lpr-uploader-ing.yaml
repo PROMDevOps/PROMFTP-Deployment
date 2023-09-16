@@ -18,6 +18,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: promftp-production-lpr-uploader
+                name: promftp-{{ .Values.envAlias }}-lpr-uploader
                 port:
                   number: 3030
