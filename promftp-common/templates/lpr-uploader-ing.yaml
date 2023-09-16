@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: kafka-ing
+  name: lpr-uploader-ing
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
     - hosts:
-      - {{ .Values.domainKafka }}
-      secretName: kafka-cert
+      - {{ .Values.domainLprUpload }}
+      secretName: lpr-uploader-cert
   rules:
-    - host: {{ .Values.domainKafka }}
+    - host: {{ .Values.domainLprUpload }}
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: kafka-ui
+                name: promftp-{{ .Values.envAlias }}-lpr-uploader
                 port:
-                  number: 80
+                  number: 3030

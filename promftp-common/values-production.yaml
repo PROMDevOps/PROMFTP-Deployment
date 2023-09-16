@@ -1,6 +1,7 @@
 envAlias: production
 domainHttp: lpr.promjodd.prom.co.th
 domainKafka: kafka-lpr.promjodd.prom.co.th
+domainLprUpload: promjodd.com
 
 kong:
   replicaCount: 2
