@@ -1,4 +1,4 @@
 promlpr-uploader:
   pods:
     image:
-      tag: "develop-daa683e"
+      tag: "develop-646d581"
