@@ -47,6 +47,9 @@ promlpr-api:
       - name: DOTNET_USE_POLLING_FILE_WATCHER
         value: "true"
 
+      - name: DOTNET_ENVIRONMENT
+        value: "Development"
+
       - name: JAEGER_AGENT_HOST
         value: "http://tempo.tempo.svc.cluster.local"
 
