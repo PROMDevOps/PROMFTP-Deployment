@@ -1,9 +1,9 @@
 promlpr-worker:
   pods:
     image:
-      tag: "develop-5ab0cca"
+      tag: "develop-262830b"
 
 promlpr-api:
   pods:
     image:
-      tag: "develop-5ab0cca"
+      tag: "develop-262830b"
