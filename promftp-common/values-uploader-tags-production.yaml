@@ -1,4 +1,4 @@
 promlpr-uploader:
   pods:
     image:
-      tag: "main-a219619"
+      tag: "main-c7e4eb1"
