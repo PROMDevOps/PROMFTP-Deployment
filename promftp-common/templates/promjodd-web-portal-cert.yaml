@@ -1,9 +1,9 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: lpr-uploader-cert
+  name: promjodd-web-portal-cert
 spec:
-  secretName: lpr-uploader-cert
+  secretName: promjodd-web-portal-cert
   dnsNames:
     - {{ .Values.domainLprUpload }}
     - www.{{ .Values.domainLprUpload }}

@@ -49,9 +49,9 @@ kafka-ui:
       AUTH_TYPE: "LOGIN_FORM" #"DISABLED"
       SECURITY_BASIC_ENABLED: "true"
 
-promlpr-worker:
+carpark-worker:
   enabled: true
-  nameOverride: lpr-worker
+  nameOverride: carpark-worker
 
   podDisruptionBudget:
     enabled: false
@@ -59,7 +59,7 @@ promlpr-worker:
   pods:
     controller: deployment
     image:
-      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-worker
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/carpark-worker
     volumes:
       - name: gcloud-key
         secret:
@@ -73,9 +73,9 @@ promlpr-worker:
     enabled: false
     ports: []
 
-promlpr-api:
+carpark-api:
   enabled: true
-  nameOverride: lpr-api
+  nameOverride: carpark-api
 
   podDisruptionBudget:
     enabled: false
@@ -83,7 +83,7 @@ promlpr-api:
   pods:
     controller: deployment
     image:
-      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-api
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/carpark-api
     volumes:
       - name: gcloud-key
         secret:
@@ -101,18 +101,18 @@ promlpr-api:
         protocol: TCP
         name: http
 
-postgresql-lpr-api:
+postgresql-carpark-api:
   enabled: true
-  fullnameOverride: postgresql-lpr-api
+  fullnameOverride: postgresql-carpark-api
   auth:
-    database: lpr-api
-    existingSecret: lpr-api-postgres-secret
+    database: carpark-api
+    existingSecret: carpark-postgres-secret
     secretKeys:
       adminPasswordKey: adminPasswordKey
 
-promlpr-uploader:
+promjodd-web-portal:
   enabled: true
-  nameOverride: lpr-uploader
+  nameOverride: promjodd-web-portal
 
   podDisruptionBudget:
     enabled: false
@@ -120,7 +120,7 @@ promlpr-uploader:
   pods:
     controller: deployment
     image:
-      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promlpr/lpr-uploader
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/promjodd-web-portal
   service:
     enabled: true
     ports:

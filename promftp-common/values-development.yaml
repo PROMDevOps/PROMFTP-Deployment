@@ -1,7 +1,7 @@
 envAlias: development
-domainHttp: lp.promjodd-dev.prom.co.th
-domainKafka: kafka-lp.promjodd-dev.prom.co.th
-domainLprUpload: dev.promjodd.com
+domainHttp: lpx.promjodd-dev.prom.co.th
+domainKafka: kafka-lpx.promjodd-dev.prom.co.th
+domainLprUpload: devx.promjodd.com
 
 promlpr-worker:
   ingress:

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: lpr-uploader-ing
+  name: promjodd-web-portal-ing
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP  
     kubernetes.io/ingress.class: "nginx"
@@ -10,7 +10,7 @@ spec:
     - hosts:
       - {{ .Values.domainLprUpload }}
       - www.{{ .Values.domainLprUpload }}
-      secretName: lpr-uploader-cert
+      secretName: promjodd-web-portal-cert
   rules:
     - host: {{ .Values.domainLprUpload }}
       http:

@@ -29,26 +29,26 @@ dependencies:
 
   ### PromLPR ###
   - name: "generic-app"
-    alias: promlpr-worker
-    condition: promlpr-worker.enabled
+    alias: carpark-worker
+    condition: carpark-worker.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
 
   - name: "generic-app"
-    alias: promlpr-api
-    condition: promlpr-api.enabled
+    alias: carpark-api
+    condition: carpark-api.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
 
   - name: "generic-app"
-    alias: promlpr-uploader
-    condition: promlpr-uploader.enabled
+    alias: promjodd-web-portal
+    condition: promjodd-web-portal.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
 
   ### pgSQL ###
   - name: "postgresql"
-    alias: postgresql-lpr-api
-    condition: postgresql-lpr-api.enabled
+    alias: postgresql-carpark-api
+    condition: postgresql-carpark-api.enabled
     repository: "https://charts.bitnami.com/bitnami"
     version: "12.5.7"
