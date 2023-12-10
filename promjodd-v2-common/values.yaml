@@ -106,7 +106,7 @@ postgresql-carpark-api:
   fullnameOverride: postgresql-carpark-api
   auth:
     database: carpark-api
-    existingSecret: carpark-postgres-secret
+    existingSecret: carpark-api-postgres-secret
     secretKeys:
       adminPasswordKey: adminPasswordKey
 
