@@ -6,7 +6,7 @@ domainLprUpload: promjodd.com
 kong:
   replicaCount: 2
 
-promlpr-worker:
+carpark-worker:
   ingress:
     enabled: false
 
@@ -39,7 +39,7 @@ promlpr-worker:
             key: LPR_AUTH_KEY
             optional: false
 
-promlpr-api:
+carpark-api:
   ingress:
     enabled: false
 
@@ -88,7 +88,7 @@ promlpr-api:
             key: adminPasswordKey
             optional: false
 
-promlpr-uploader:
+promjodd-web-portal:
   ingress:
     enabled: false
 
@@ -97,7 +97,7 @@ promlpr-uploader:
       - name: LPR_KEY
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_UPLOADER_KEY
             optional: false
 

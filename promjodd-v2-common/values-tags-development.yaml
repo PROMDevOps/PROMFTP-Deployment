@@ -1,9 +1,9 @@
-promlpr-worker:
+carpark-worker:
   pods:
     image:
       tag: "v0.1.24"
 
-promlpr-api:
+carpark-api:
   pods:
     image:
       tag: "v0.1.24"

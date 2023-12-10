@@ -3,7 +3,7 @@ domainHttp: lp.promjodd-dev.prom.co.th
 domainKafka: kafka-lp.promjodd-dev.prom.co.th
 domainLprUpload: dev.promjodd.com
 
-promlpr-worker:
+carpark-worker:
   ingress:
     enabled: false
 
@@ -37,7 +37,7 @@ promlpr-worker:
             optional: false
 
 
-promlpr-api:
+carpark-api:
   ingress:
     enabled: false
 
@@ -89,7 +89,7 @@ promlpr-api:
             key: adminPasswordKey
             optional: false
 
-promlpr-uploader:
+promjodd-web-portal:
   ingress:
     enabled: false
 
@@ -98,7 +98,7 @@ promlpr-uploader:
       - name: LPR_KEY
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_UPLOADER_KEY
             optional: false
 
