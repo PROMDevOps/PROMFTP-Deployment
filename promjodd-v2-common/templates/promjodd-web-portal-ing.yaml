@@ -19,7 +19,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: promftp-{{ .Values.envAlias }}-lpr-uploader
+                name: promjodd-v2-{{ .Values.envAlias }}-promjodd-web-portal
                 port:
                   number: 3030
     - host: www.{{ .Values.domainLprUpload }}
@@ -29,6 +29,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: promftp-{{ .Values.envAlias }}-lpr-uploader
+                name: promjodd-v2-{{ .Values.envAlias }}-promjodd-web-portal
                 port:
                   number: 3030
