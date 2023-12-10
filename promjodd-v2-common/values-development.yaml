@@ -1,12 +1,9 @@
-envAlias: production
-domainHttp: lpr.promjodd.prom.co.th
-domainKafka: kafka-lpr.promjodd.prom.co.th
-domainLprUpload: promjodd.com
+envAlias: development
+domainHttp: lp.promjodd-dev.prom.co.th
+domainKafka: kafka-lp.promjodd-dev.prom.co.th
+domainLprUpload: dev.promjodd.com
 
-kong:
-  replicaCount: 2
-
-promlpr-worker:
+carpark-worker:
   ingress:
     enabled: false
 
@@ -28,18 +25,19 @@ promlpr-worker:
       - name: LPRExecutor__lprBaseUrl
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_BASE_URL
             optional: false
 
       - name: LPRExecutor__lprAuthKey
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_AUTH_KEY
             optional: false
 
-promlpr-api:
+
+carpark-api:
   ingress:
     enabled: false
 
@@ -48,6 +46,9 @@ promlpr-api:
       # To solve ulimit(128) issue
       - name: DOTNET_USE_POLLING_FILE_WATCHER
         value: "true"
+
+      - name: DOTNET_ENVIRONMENT
+        value: "Development"
 
       - name: JAEGER_AGENT_HOST
         value: "http://tempo.tempo.svc.cluster.local"
@@ -61,19 +62,19 @@ promlpr-api:
       - name: LPR__lprBaseUrl
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_BASE_URL
             optional: false
 
       - name: LPR__lprAuthKey
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_AUTH_KEY
             optional: false
 
       - name: PostgreSQL__Host
-        value: "postgresql-lpr-api"
+        value: "postgresql-carpark-api"
 
       - name: PostgreSQL__Database
         value: "lpr-api"
@@ -84,11 +85,11 @@ promlpr-api:
       - name: PostgreSQL__Password
         valueFrom:
           secretKeyRef:
-            name: lpr-api-postgres-secret
+            name: carpark-api-postgres-secret
             key: adminPasswordKey
             optional: false
 
-promlpr-uploader:
+promjodd-web-portal:
   ingress:
     enabled: false
 
@@ -97,9 +98,9 @@ promlpr-uploader:
       - name: LPR_KEY
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_UPLOADER_KEY
             optional: false
 
       - name: LPR_ENDPOINT
-        value: https://lpr.promjodd.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage
+        value: https://lpr.promjodd-dev.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage

@@ -1,9 +1,0 @@
-promlpr-worker:
-  pods:
-    image:
-      tag: "main-0fc0956"
-
-promlpr-api:
-  pods:
-    image:
-      tag: "main-0fc0956"

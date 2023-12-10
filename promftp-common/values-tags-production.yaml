@@ -1,9 +1,0 @@
-promlpr-worker:
-  pods:
-    image:
-      tag: "v0.0.6"
-
-promlpr-api:
-  pods:
-    image:
-      tag: "v0.0.6"

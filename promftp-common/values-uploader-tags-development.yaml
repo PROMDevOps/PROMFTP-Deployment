@@ -1,4 +1,0 @@
-promlpr-uploader:
-  pods:
-    image:
-      tag: "develop-f5fe1ea"

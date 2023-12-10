@@ -1,9 +1,9 @@
-promlpr-worker:
+carpark-worker:
   pods:
     image:
       tag: "<<image-tag>>"
 
-promlpr-api:
+carpark-api:
   pods:
     image:
       tag: "<<image-tag>>"
