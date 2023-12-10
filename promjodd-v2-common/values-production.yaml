@@ -28,14 +28,14 @@ carpark-worker:
       - name: LPRExecutor__lprBaseUrl
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_BASE_URL
             optional: false
 
       - name: LPRExecutor__lprAuthKey
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_AUTH_KEY
             optional: false
 
@@ -61,19 +61,19 @@ carpark-api:
       - name: LPR__lprBaseUrl
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_BASE_URL
             optional: false
 
       - name: LPR__lprAuthKey
         valueFrom:
           secretKeyRef:
-            name: lpr-worker-secret
+            name: carpark-worker-secret
             key: LPR_AUTH_KEY
             optional: false
 
       - name: PostgreSQL__Host
-        value: "postgresql-lpr-api"
+        value: "postgresql-carpark-api"
 
       - name: PostgreSQL__Database
         value: "lpr-api"
