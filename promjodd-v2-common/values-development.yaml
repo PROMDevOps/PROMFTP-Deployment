@@ -77,7 +77,7 @@ carpark-api:
         value: "postgresql-carpark-api"
 
       - name: PostgreSQL__Database
-        value: "lpr-api"
+        value: "carpark-api"
 
       - name: PostgreSQL__User
         value: "postgres"
