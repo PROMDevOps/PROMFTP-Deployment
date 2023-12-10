@@ -84,7 +84,7 @@ carpark-api:
       - name: PostgreSQL__Password
         valueFrom:
           secretKeyRef:
-            name: lpr-api-postgres-secret
+            name: carpark-api-postgres-secret
             key: adminPasswordKey
             optional: false
 
