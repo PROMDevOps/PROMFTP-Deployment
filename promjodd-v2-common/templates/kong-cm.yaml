@@ -9,7 +9,7 @@ data:
 
     services:
     - name: lpr-api
-      url: http://promftp-{{ .Values.envAlias }}-lpr-api:8080/
+      url: http://promjodd-v2-{{ .Values.envAlias }}-carpark-api:8080/
       routes:
       - name: alpr-api
         strip_path: true
@@ -17,7 +17,7 @@ data:
         - /alpr
 
     - name: lpr-uploader
-      url: http://promftp-{{ .Values.envAlias }}-lpr-uploader:3030/
+      url: http://promjodd-v2-{{ .Values.envAlias }}-promjodd-web-portal:3030/
       routes:
       - name: alpr-uploader
         strip_path: false
