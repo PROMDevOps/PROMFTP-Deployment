@@ -50,7 +50,7 @@ kafka-ui:
       SECURITY_BASIC_ENABLED: "true"
 
 promlpr-worker:
-  enabled: true
+  enabled: false # DISABLE for now
   nameOverride: lpr-worker
 
   podDisruptionBudget:
