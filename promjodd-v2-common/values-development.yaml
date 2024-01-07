@@ -104,3 +104,24 @@ promjodd-web-portal:
 
       - name: LPR_ENDPOINT
         value: https://lpr.promjodd-dev.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage
+
+      - name: IDP_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: webportal-secret
+            key: IDP_CLIENT_ID
+            optional: false
+
+      - name: IDP_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: webportal-secret
+            key: IDP_CLIENT_SECRET
+            optional: false
+
+      - name: IDP_ENDPOINT
+        valueFrom:
+          secretKeyRef:
+            name: webportal-secret
+            key: IDP_ENDPOINT
+            optional: false
