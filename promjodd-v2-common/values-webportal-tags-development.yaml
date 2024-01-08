@@ -1,4 +1,4 @@
 promjodd-web-portal:
   pods:
     image:
-      tag: "develop-f0bcc1b"
+      tag: "develop-7d43759"
