@@ -1,12 +1,15 @@
-#apiVersion: cert-manager.io/v1
-#kind: Certificate
-#metadata:
-#  name: kafka-cert
-#spec:
-#  secretName: kafka-cert
-#  dnsNames:
-#    - {{ .Values.domainKafka }}
-#  issuerRef:
-#    name: lets-encrypt-issuer-prod
-#    kind: ClusterIssuer
-#    group: cert-manager.io
+{{ if eq .Values.envAlias "production" }}
+# No DNS for development environment right now
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kafka-cert
+spec:
+  secretName: kafka-cert
+  dnsNames:
+    - {{ .Values.domainKafka }}
+  issuerRef:
+    name: lets-encrypt-issuer-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+{{ end }}
