@@ -124,3 +124,15 @@ promjodd-web-portal:
             name: webportal-secret
             key: IDP_ENDPOINT
             optional: false
+
+lpr-web:
+  ingress:
+    enabled: false
+
+  pods:
+    env:
+      - name: CARPARK_BASE_API
+        value: https://lpr.promjodd-dev.prom.co.th/ #alpr/api/FileUpload/org/default/action/UploadVehicleImage
+
+      - name: LOGOUT_URL
+        value: https://dev.promjodd.com/

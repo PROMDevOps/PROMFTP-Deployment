@@ -27,7 +27,7 @@ dependencies:
     repository: "https://provectus.github.io/kafka-ui-charts"
     version: "0.7.4"
 
-  ### PromLPR ###
+  ### PromJodd ###
   - name: "generic-app"
     alias: carpark-worker
     condition: carpark-worker.enabled
@@ -43,6 +43,12 @@ dependencies:
   - name: "generic-app"
     alias: promjodd-web-portal
     condition: promjodd-web-portal.enabled
+    repository: "https://charts.visonneau.fr/"
+    version: "0.0.14"
+
+  - name: "lpr-web"
+    alias: lpr-web
+    condition: lpr-web.enabled
     repository: "https://charts.visonneau.fr/"
     version: "0.0.14"
 
