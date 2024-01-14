@@ -128,3 +128,22 @@ promjodd-web-portal:
         targetPort: 3030
         protocol: TCP
         name: http
+
+lpr-web:
+  enabled: true
+  nameOverride: lpr-web
+
+  podDisruptionBudget:
+    enabled: false
+
+  pods:
+    controller: deployment
+    image:
+      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/lpr-web
+  service:
+    enabled: true
+    ports:
+      - port: 3030
+        targetPort: 3030
+        protocol: TCP
+        name: http
