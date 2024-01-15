@@ -89,6 +89,12 @@ carpark-api:
             key: adminPasswordKey
             optional: false
 
+      - name: SSO__issuer
+        value: "https://keycloak.promid-dev.prom.co.th/auth/realms/promid"
+
+      - name: SSO__signedKeyUrl
+        value: "https://keycloak.promid-dev.prom.co.th/auth/realms/promid/protocol/openid-connect/certs"
+
 promjodd-web-portal:
   ingress:
     enabled: false
