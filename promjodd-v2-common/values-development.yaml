@@ -89,6 +89,12 @@ carpark-api:
             key: adminPasswordKey
             optional: false
 
+      - name: SSO__issuer
+        value: "https://keycloak.promid.prom.co.th/auth/realms/promid-nonprod"
+
+      - name: SSO__signedKeyUrl
+        value: "https://keycloak.promid.prom.co.th/auth/realms/promid-nonprod/protocol/openid-connect/certs"
+
 promjodd-web-portal:
   ingress:
     enabled: false
@@ -137,3 +143,10 @@ lpr-web:
 
       - name: LOGOUT_URL
         value: https://dev.promjodd.com/
+
+      - name: LPR_ADMIN_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: lpr-web-secret
+            key: LPR_ADMIN_API_KEY
+            optional: false
