@@ -132,7 +132,14 @@ lpr-web:
   pods:
     env:
       - name: CARPARK_BASE_API
-        value: https://lpr.promjodd-dev.prom.co.th/ #alpr/api/FileUpload/org/default/action/UploadVehicleImage
+        value: https://lpr.promjodd.prom.co.th/
 
       - name: LOGOUT_URL
-        value: https://dev.promjodd.com/
+        value: https://promjodd.com/
+
+      - name: LPR_ADMIN_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: lpr-web-secret
+            key: LPR_ADMIN_API_KEY
+            optional: false
