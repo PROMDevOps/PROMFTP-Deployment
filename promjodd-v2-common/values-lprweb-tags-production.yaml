@@ -1,4 +1,4 @@
 lpr-web:
   pods:
     image:
-      tag: "main-97ac4d6"
+      tag: "v0.0.2"
