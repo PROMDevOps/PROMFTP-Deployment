@@ -21,7 +21,7 @@ spec:
               service:
                 name: promjodd-v2-{{ .Values.envAlias }}-lpr-web
                 port:
-                  number: 3030
+                  number: 3031
     - host: www.{{ .Values.domainLprWeb }}
       http:
         paths:
@@ -31,4 +31,4 @@ spec:
               service:
                 name: promjodd-v2-{{ .Values.envAlias }}-lpr-web
                 port:
-                  number: 3030
+                  number: 3031
