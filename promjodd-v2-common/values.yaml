@@ -24,59 +24,54 @@ kong:
       enabled: true
 
 ### Kafka ###
-kafka:
-  enabled: true
-  fullnameOverride: kafka
-  provisioning:
-    enabled: true
-    topics:
-      - name: prom-ftp
-        partitions: 1
-        replicationFactor: 1
-        ## https://kafka.apache.org/documentation/#topicconfigs
-        config:
-          max.message.bytes: 64000
-
-kafka-ui:
-  enabled: true
-  fullnameOverride: kafka-ui
-  existingSecret: kafka-ui-credential
-  envs:
-    config:
-      KAFKA_CLUSTERS_0_NAME: kafka-sftp
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
-      KAFKA_CLUSTERS_0_READONLY: "false"
-      AUTH_TYPE: "LOGIN_FORM" #"DISABLED"
-      SECURITY_BASIC_ENABLED: "true"
-
-### Memcache ###
-#memcached:
+#kafka:
 #  enabled: true
-#  fullnameOverride: memcached
+#  fullnameOverride: kafka
+#  provisioning:
+#    enabled: true
+#    topics:
+#      - name: prom-ftp
+#        partitions: 1
+#        replicationFactor: 1
+#        ## https://kafka.apache.org/documentation/#topicconfigs
+#        config:
+#          max.message.bytes: 64000
 
-carpark-worker:
-  enabled: true
-  nameOverride: carpark-worker
+#kafka-ui:
+#  enabled: true
+#  fullnameOverride: kafka-ui
+#  existingSecret: kafka-ui-credential
+#  envs:
+#    config:
+#      KAFKA_CLUSTERS_0_NAME: kafka-sftp
+#      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+#      KAFKA_CLUSTERS_0_READONLY: "false"
+#      AUTH_TYPE: "LOGIN_FORM" #"DISABLED"
+#      SECURITY_BASIC_ENABLED: "true"
 
-  podDisruptionBudget:
-    enabled: false
+#carpark-worker:
+#  enabled: true
+#  nameOverride: carpark-worker
 
-  pods:
-    controller: deployment
-    image:
-      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/carpark-worker
-    volumes:
-      - name: gcloud-key
-        secret:
-          secretName: sftp-gcloud-key
-          optional: false
-    volumeMounts:
-      - name: gcloud-key
-        mountPath: /credentials/gcloud-key.json
-        subPath: gcloud-key.json
-  service:
-    enabled: false
-    ports: []
+#  podDisruptionBudget:
+#    enabled: false
+
+#  pods:
+#    controller: deployment
+#    image:
+#      name: asia-southeast1-docker.pkg.dev/promrub-personal-use/promjodd/carpark-worker
+#    volumes:
+#      - name: gcloud-key
+#        secret:
+#          secretName: sftp-gcloud-key
+#          optional: false
+#    volumeMounts:
+#      - name: gcloud-key
+#        mountPath: /credentials/gcloud-key.json
+#        subPath: gcloud-key.json
+#  service:
+#    enabled: false
+#    ports: []
 
 carpark-api:
   enabled: true
@@ -152,3 +147,13 @@ lpr-web:
         targetPort: 3031
         protocol: TCP
         name: http
+
+### Memcache ###
+memcached:
+  enabled: true
+  fullnameOverride: memcached
+  nameOverride: memcached
+  serviceAccount:
+    create: false
+  commonLabels:
+    aaa: yyyy

@@ -4,3 +4,4 @@
 export.bash
 script.txt
 template.json
+*.lock
