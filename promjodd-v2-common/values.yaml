@@ -50,9 +50,9 @@ kafka-ui:
       SECURITY_BASIC_ENABLED: "true"
 
 ### Memcache ###
-memcached:
-  enabled: true
-  fullnameOverride: memcached
+#memcached:
+#  enabled: true
+#  fullnameOverride: memcached
 
 carpark-worker:
   enabled: true
