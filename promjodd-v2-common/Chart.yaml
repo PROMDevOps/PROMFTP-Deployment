@@ -58,3 +58,10 @@ dependencies:
     condition: postgresql-carpark-api.enabled
     repository: "https://charts.bitnami.com/bitnami"
     version: "12.5.7"
+
+  ### Memcache ###
+  - name: "memcached"
+    alias: memcached
+    condition: memcached.enabled
+    repository: "https://charts.bitnami.com/bitnami"
+    version: "6.8.1"
