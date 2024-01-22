@@ -2,7 +2,7 @@ envAlias: development
 domainHttp: lpr.promjodd-dev.prom.co.th
 domainKafka: kafka-lpr.promjodd-dev.prom.co.th
 domainLprUpload: dev.promjodd.com
-domainLprWeb: dev.kaspa-chain.net #dev-lpr.promjodd.com
+domainLprWeb: dev-lpr.promjodd.com
 
 #carpark-worker:
 #  ingress:
@@ -112,7 +112,7 @@ promjodd-web-portal:
         value: https://lpr.promjodd-dev.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage
 
       - name: LPR_WEB_URL
-        value: https://dev.kaspa-chain.net/
+        value: https://dev-lpr.promjodd.com/
 
       - name: IDP_CLIENT_ID
         valueFrom:
