@@ -105,6 +105,9 @@ promjodd-web-portal:
       - name: LPR_ENDPOINT
         value: https://lpr.promjodd.prom.co.th/alpr/api/FileUpload/org/default/action/UploadVehicleImage
 
+      - name: LPR_WEB_URL
+        value: https://kaspa-chain.net/
+
       - name: IDP_CLIENT_ID
         valueFrom:
           secretKeyRef:
