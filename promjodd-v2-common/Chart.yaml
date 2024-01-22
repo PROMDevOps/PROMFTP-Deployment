@@ -59,7 +59,7 @@ dependencies:
     repository: "https://charts.bitnami.com/bitnami"
     version: "12.5.7"
 
-  ### Memcache ###
+#  ### Memcache ###
 #  - name: "memcached"
 #    alias: memcached
 #    condition: memcached.enabled
