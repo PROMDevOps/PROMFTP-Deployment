@@ -32,11 +32,11 @@ dependencies:
     condition: kong.enabled
 
   ### PromJodd ###
-  - name: "generic-app"
-    alias: carpark-worker
-    condition: carpark-worker.enabled
-    repository: "https://charts.visonneau.fr/"
-    version: "0.0.14"
+#  - name: "generic-app"
+#    alias: carpark-worker
+#    condition: carpark-worker.enabled
+#    repository: "https://charts.visonneau.fr/"
+#    version: "0.0.14"
 
   - name: "generic-app"
     alias: carpark-api
