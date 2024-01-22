@@ -1,0 +1,30 @@
+dependencies:
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 22.1.6
+- name: kong
+  repository: https://charts.konghq.com
+  version: 2.22.0
+- name: kafka-ui
+  repository: https://provectus.github.io/kafka-ui-charts
+  version: 0.7.4
+- name: generic-app
+  repository: https://charts.visonneau.fr/
+  version: 0.0.14
+- name: generic-app
+  repository: https://charts.visonneau.fr/
+  version: 0.0.14
+- name: generic-app
+  repository: https://charts.visonneau.fr/
+  version: 0.0.14
+- name: generic-app
+  repository: https://charts.visonneau.fr/
+  version: 0.0.14
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.5.7
+- name: memcached
+  repository: https://charts.bitnami.com/bitnami
+  version: 6.8.1
+digest: sha256:e9a88bf09eaf4047c19c9823a1fab383b0bbc7cc75d65e0c10586062205522f7
+generated: "2024-01-22T16:57:06.3437682+07:00"

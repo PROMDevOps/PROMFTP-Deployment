@@ -60,8 +60,8 @@ dependencies:
     version: "12.5.7"
 
   ### Memcache ###
-  - name: "memcached"
-    alias: memcached
-    condition: memcached.enabled
-    repository: "https://charts.bitnami.com/bitnami"
-    version: "6.8.1"
+#  - name: "memcached"
+#    alias: memcached
+#    condition: memcached.enabled
+#    repository: "https://charts.bitnami.com/bitnami"
+#    version: "6.8.1"
