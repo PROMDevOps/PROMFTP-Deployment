@@ -6,7 +6,6 @@ spec:
   secretName: lpr-web-cert
   dnsNames:
     - {{ .Values.domainLprWeb }}
-    - www.{{ .Values.domainLprWeb }}
   issuerRef:
     name: lets-encrypt-issuer-prod
     kind: ClusterIssuer

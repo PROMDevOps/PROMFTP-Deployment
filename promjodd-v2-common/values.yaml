@@ -155,5 +155,3 @@ memcached:
   nameOverride: memcached
   serviceAccount:
     create: false
-  commonLabels:
-    aaa: yyyy
