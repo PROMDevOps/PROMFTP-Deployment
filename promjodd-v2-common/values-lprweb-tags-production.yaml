@@ -1,4 +1,4 @@
 lpr-web:
   pods:
     image:
-      tag: "main-bd1634c"
+      tag: "v0.0.3"
