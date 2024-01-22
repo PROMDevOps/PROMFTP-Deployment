@@ -2,7 +2,7 @@ envAlias: development
 domainHttp: lpr.promjodd-dev.prom.co.th
 domainKafka: kafka-lpr.promjodd-dev.prom.co.th
 domainLprUpload: dev.promjodd.com
-domainLprWeb: dev-lpr.promjodd.com
+domainLprWeb: dev.kaspa-chain.net #dev-lpr.promjodd.com
 
 carpark-worker:
   ingress:
