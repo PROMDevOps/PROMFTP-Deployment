@@ -1,9 +1,9 @@
 carpark-worker:
   pods:
     image:
-      tag: "main-766635c"
+      tag: "develop-fe0f1dd"
 
 carpark-api:
   pods:
     image:
-      tag: "main-766635c"
+      tag: "develop-fe0f1dd"
