@@ -1,4 +1,4 @@
 lpr-web:
   pods:
     image:
-      tag: "develop-007d446"
+      tag: "develop-4afbff3"
