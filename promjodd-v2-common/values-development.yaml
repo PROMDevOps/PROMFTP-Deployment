@@ -153,3 +153,24 @@ lpr-web:
             name: lpr-web-secret
             key: LPR_ADMIN_API_KEY
             optional: false
+
+      - name: IDP_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: lpr-web-secret
+            key: IDP_CLIENT_ID
+            optional: false
+
+      - name: IDP_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: lpr-web-secret
+            key: IDP_CLIENT_SECRET
+            optional: false
+
+      - name: IDP_ENDPOINT
+        valueFrom:
+          secretKeyRef:
+            name: lpr-web-secret
+            key: IDP_ENDPOINT
+            optional: false
