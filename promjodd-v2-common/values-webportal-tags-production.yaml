@@ -1,4 +1,4 @@
 promjodd-web-portal:
   pods:
     image:
-      tag: "v0.0.11"
+      tag: "main-f02e517"
