@@ -1,4 +1,4 @@
 promjodd-web-portal:
   pods:
     image:
-      tag: "v0.0.13"
+      tag: "main-b6059fc"
